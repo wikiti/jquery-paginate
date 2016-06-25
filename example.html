@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery paginate example</title>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+  <script src="jquery-paginate.js"></script>
+
+  <style>
+    .page-navigation a {
+      margin: 0 2px;
+      display: inline-block;
+      padding: 3px 5px;
+      color: #ffffff;
+      background-color: #70b7ec;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .page-navigation a[data-selected] {
+      background-color: #3d9be0;
+    }
+  </style>
+</head>
+<body>
+
+<table id='myTable'>
+  <thead>
+    <tr>
+      <td>Index</td>
+      <td>Value</td>
+    </tr>
+  </thead>
+  <tbody>
+
+  </tbody>
+</table>
+
+<script>
+  // Add some examples to the page
+  for(var i = 0; i < 40; ++i)
+    $('#myTable > tbody').append('<tr><td>' + i + '</td><td>' + i.toString(16) + '</td></tr>');
+
+  // Paginate it
+  $('#myTable').paginate({
+    limit: 10,
+    onSelect: function(obj, page) {
+      console.log('Page ' + page + ' selected!' );
+    }
+  });
+</script>
+
+</body>
+</html>
