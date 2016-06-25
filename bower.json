@@ -1,0 +1,24 @@
+{
+  "name": "jquery-paginate",
+  "authors": [
+    "Daniel Herzog <wikiti.doghound@gmail.com>"
+  ],
+  "description": "jQuery pagination plugin for tables",
+  "main": "jquery-paginate.js",
+  "keywords": [
+    "jquery",
+    "paginate",
+    "table",
+    "client",
+    "front-end"
+  ],
+  "license": "MIT",
+  "homepage": "https://gitlab.com/wikiti-random-stuff/jquery-paginate",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
