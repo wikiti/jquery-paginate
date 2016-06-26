@@ -4,7 +4,7 @@
 
 `jquery-paginate` is a simple [`jquery`](https://jquery.com/) plugin that allows html websites to paginate tables and other kind of containers.
 
-A working example can be found [here]().
+A working example can be found [here](https://wikiti-random-stuff.gitlab.io/jquery-paginate/example.html).
 
 ## Installation
 
@@ -73,7 +73,7 @@ A navigation bar will be created under the table, and the table will show 10 ele
 }
 ```
 
-See [this working demo](). You can see the available options in the [Advanced options](#advanced-options) section.
+See [this working demo](https://wikiti-random-stuff.gitlab.io/jquery-paginate/example.html). You can see the available options in the [Advanced options](#advanced-options) section.
 
 ## Advanced options
 
