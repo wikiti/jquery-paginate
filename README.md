@@ -1,5 +1,7 @@
 # jQuery paginate
 
+<img src="https://gitlab.com/uploads/project/avatar/1336824/jquery-paginate.png" width="200">
+
 ## Summary
 
 `jquery-paginate` is a simple [`jquery`](https://jquery.com/) plugin that allows html websites to paginate tables and other kind of containers.
@@ -17,8 +19,8 @@ bower install jquery-paginate
 or download the `jquery-paginate.min.js` file and include it in your website:
 
 ```html
-<script src='jquery.min.js'></script>
 <!-- Add it after your jquery file! -->
+<script src='jquery.min.js'></script>
 <script src='jquery-paginate.min.js'></script>
 ```
 
@@ -36,12 +38,12 @@ Imagine the following html table:
   </thead>
   <tbody>
     <tr>
-      <td>Row 1.1</td>
-      <td>Row 1.2</td>
+      <td>Row 1 Col 1</td>
+      <td>Row 1 Col 2</td>
     </tr>
     <tr>
-      <td>Row 2.1</td>
-      <td>Row 2.2</td>
+      <td>Row 2 Col 1</td>
+      <td>Row 2 Col 2</td>
     </tr>
     <!-- ... -->
   </tbody>
