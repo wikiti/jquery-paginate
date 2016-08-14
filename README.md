@@ -16,6 +16,12 @@ Install this package as a bower dependecy with:
 bower install jquery-paginate
 ```
 
+or with:
+
+```
+npm install jquery-paginate
+```
+
 or download the `jquery-paginate.min.js` file and include it in your website:
 
 ```html
