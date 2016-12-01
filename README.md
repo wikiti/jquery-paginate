@@ -104,6 +104,7 @@ See [this working demo](https://wikiti-random-stuff.gitlab.io/jquery-paginate/ex
 | `navigationWrapper` | `null` | A **jquery object** to append the navigation bar to it. This can be used to put your navigation bar on a sticky footer, for example. If `null`, then it will be added after the table. |
 | `navigationClass` | `'page-navigation'` | A **css class name** applied to the navigation menu bar. Can contain multiple classes names, separated with spaces. |
 | `pageToText` | `function(i) { return (i + 1).toString(); }` | A javascript function to transform the current page index (*0...N-1*) to a string, shown in the navigation menu. |
+| `paginatePages` | `false` | A numeric flag to enable pagination for nav buttons. For example, if you have 15 buttons, and you only want to show 5, use `paginatePages: 5` |
 
 For example, a working example with all options:
 

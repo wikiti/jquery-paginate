@@ -29,11 +29,13 @@
         this._appendNavigation();
         this._addNavigationCallbacks();
       },
+
       _createNavigationWrapper: function() {
         this.nav = $('<div>', {
           class: this.options.navigationClass
         });
       },
+
       _createNavigationButtons: function() {
         // Add 'first' button
         if(this.options.first) {
@@ -72,15 +74,30 @@
           });
         }
       },
+
+      _hideNumericNavigationButtons: function() {
+        this.nav.find('a[data-page]').hide();
+      },
+
+      _showCurrentNumericNavigationButtons: function() {
+        this._hideNumericNavigationButtons();
+
+        var buttons = this.nav.find('a[data-page]');
+        var current_group = this.options.paginatePages * Math.floor(this._currentPage() / this.options.paginatePages);
+        buttons.slice(current_group, current_group + this.options.paginatePages).show();
+      },
+
       _createNavigationButton: function(text, options) {
         this.nav.append($('<a>', $.extend(options, { href: '#', text: text })));
       },
+
       _appendNavigation: function() {
         // Add the content to the navigation block
         if(this.options.navigationWrapper) this.options.navigationWrapper.append(this.nav);
         // Add it after the table
         else this.obj.after(this.nav);
       },
+
       _addNavigationCallbacks: function() {
         var paginator = this;
 
@@ -97,7 +114,15 @@
           }
           // 'Previous' or 'Next' button
           else if ($(this).data('previous') !== undefined || $(this).data('next') !== undefined) {
-            var page = paginator._currentPage() + direction;
+            var page;
+            if(paginator.options.paginatePages) {
+              page = paginator._currentPage() + direction * paginator.options.paginatePages;
+              page = paginator.options.paginatePages * Math.floor(page / paginator.options.paginatePages);
+            }
+            else {
+              page = paginator._currentPage() + direction;
+            }
+
             if(page >= 0 && page <= paginator._totalPages() - 1) {
               paginator._setPage(page);
             }
@@ -123,18 +148,24 @@
         // Set the current button as active
         this.nav.find('a').removeAttr('data-selected').siblings('a[data-page=' + index + ']')
                 .attr('data-selected', true);
+
+        // Paginate pages, if present
+        if(this.options.paginatePages) this._showCurrentNumericNavigationButtons();
       },
 
       _currentPage: function() {
         return this.nav.find('a[data-selected=true]').data('page');
       },
+
       _totalRows: function() {
         // Count the total rows of the selector
         return this._rows().length;
       },
+
       _rows: function() {
         return this.obj.find(this.options.childrenSelector);
       },
+
       _totalPages: function() {
         return Math.floor(this._totalRows() / this.options.limit);
       }
@@ -170,7 +201,9 @@
     childrenSelector: 'tbody > tr',
     navigationWrapper: null,
     navigationClass: 'page-navigation',
-    pageToText: function(i) { return (i + 1).toString(); }
+    pageToText: function(i) { return (i + 1).toString(); },
+
+    paginatePages: false
   }
 
 }(jQuery));
