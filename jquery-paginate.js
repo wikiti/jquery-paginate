@@ -115,7 +115,7 @@
       },
 
       _setPage: function(index) {
-        if(!index) index = this.options.initialPage;
+        if(index == undefined) index = this.options.initialPage;
 
         // Hide all elements, and then show the current page.
         this._rows().hide().slice(index * this.options.limit, (index + 1) * this.options.limit).show();
@@ -136,7 +136,7 @@
         return this.obj.find(this.options.childrenSelector);
       },
       _totalPages: function() {
-        return Math.floor(this._totalRows() / this.options.limit);
+        return Math.ceil(this._totalRows() / this.options.limit);
       }
     };
   };

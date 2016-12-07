@@ -1,6 +1,6 @@
 {
   "name": "jquery-paginate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "jQuery pagination plugin for tables",
   "main": "jquery-paginate.min.js",
   "scripts": {

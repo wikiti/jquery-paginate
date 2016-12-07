@@ -39,15 +39,13 @@
 
 <script>
   // Add some examples to the page
-  for(var i = 0; i < 40; ++i)
+  for(var i = 0; i < 36; ++i)
     $('#myTable > tbody').append('<tr><td>' + i + '</td><td>' + i.toString(16) + '</td></tr>');
 
   // Paginate it
   $('#myTable').paginate({
     limit: 10,
-    onSelect: function(obj, page) {
-      console.log('Page ' + page + ' selected!' );
-    }
+    initialPage: 2
   });
 </script>
 
