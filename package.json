@@ -2,9 +2,11 @@
   "name": "jquery-paginate",
   "version": "1.0.1",
   "description": "jQuery pagination plugin for tables",
-  "main": "jquery-paginate.min.js",
+  "main": "dist/jquery-paginate.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "transpile": "node_modules/browserify/bin/cmd.js -t coffeeify src/jquery-paginate.coffee > dist/jquery-paginate.js",
+    "minify": "node_modules/uglify-js/bin/uglifyjs dist/jquery-paginate.js > dist/jquery-paginate.min.js",
+    "build": "npm run transpile && npm run minify"
   },
   "repository": {
     "type": "git",
@@ -23,7 +25,14 @@
     "url": "https://github.com/wikiti/jquery-paginate/issues"
   },
   "homepage": "https://github.com/wikiti/jquery-paginate#readme",
-  "dependencies": {
-    "jquery": "~1.12.4"
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babelify": "^8.0.0",
+    "browserify": "^16.1.1",
+    "coffeeify": "^3.0.1",
+    "coffeescript": "^2.2.4",
+    "jquery": "~1.12.4",
+    "uglify-js": "^3.3.17"
   }
 }

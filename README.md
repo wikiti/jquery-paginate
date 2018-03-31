@@ -1,12 +1,10 @@
 # jQuery paginate
 
-<img src="https://gitlab.com/uploads/project/avatar/1336824/jquery-paginate.png" width="200">
-
 ## Summary
 
 `jquery-paginate` is a simple [`jquery`](https://jquery.com/) plugin that allows html websites to paginate tables and other kind of containers.
 
-A working example can be found [here](https://wikiti-random-stuff.gitlab.io/jquery-paginate/example.html).
+A working example can be found [here](https://wikiti.github.io/jquery-paginate/).
 
 ## Installation
 
@@ -89,14 +87,10 @@ See [this working demo](https://wikiti-random-stuff.gitlab.io/jquery-paginate/ex
 |--------|--------|--------|
 | `limit` | `20` | Elements shown per page. |
 | `initialPage` | `0` | Default selected page, being 0 the first one. |
-| `previous` | `true` | *Previous* button, to move to the previous page. |
-| `previousText` | `'<'` | Text for *Previous* button. Will be shown only if `previous` is `true`. |
-| `next` | `true` | *Next* button, to move to the next page. |
-| `nextText` | `'>'` | Text for *Next* button. Will be shown only if `next` is `true`. |
-| `first` | `true` | *First* button, to move to first page. |
-| `firstText` | `'>'` | Text for *First* button. Will be shown only if `first` is `true`. |
-| `last` | `true` | *Last* button, to move to last page. |
-| `lastText` | `'>'` | Text for *Last* button. Will be shown only if `last` is `true`. |
+| `previous` | `'<'` | *Previous* button, to move to the previous page. Set to `null ` or `undefined` to disable it. |
+| `next` | `'>'` | *Next* button, to move to the next page. Set to `null ` or `undefined` to disable it. |
+| `first` | `'<<'` | *First* button, to move to first page. Set to `null ` or `undefined` to disable it. |
+| `last` | `'>>'` | *Last* button, to move to last page. Set to `null ` or `undefined` to disable it. |
 | `optional` | `true` | If this option is `true`, then the pagination menu will be added only if the container has more elements than the `limit` value. i.e. Will be added only if there are more than 1 page. |
 | `onCreate` | `null` | A callback to be called when the pagination is initialized. Should have the following structure: `function(jquery_table_object) {}` |
 | `onSelect` | `null` | A callback to be called when any page is selected. Should have the following structure: `function(jquery_table_object, current_page_index) {}` |
@@ -128,6 +122,22 @@ $('#myTable').paginate({
   pageToText: function(i) { return (i + 1).toString(16); } // Page numbers will be shown on hexadecimal notation
 });
 ```
+
+## Development
+
+To build this project, just install dependencies:
+
+```
+npm install
+```
+
+And run the `build` script:
+
+```
+npm run build
+```
+
+Build files will be placed on `dist/`.
 
 ## Authors
 
