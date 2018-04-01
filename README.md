@@ -92,35 +92,38 @@ See [this working demo](https://wikiti-random-stuff.gitlab.io/jquery-paginate/ex
 | `first` | `'<<'` | *First* button, to move to first page. Set to `null ` or `undefined` to disable it. |
 | `last` | `'>>'` | *Last* button, to move to last page. Set to `null ` or `undefined` to disable it. |
 | `optional` | `true` | If this option is `true`, then the pagination menu will be added only if the container has more elements than the `limit` value. i.e. Will be added only if there are more than 1 page. |
-| `onCreate` | `null` | A callback to be called when the pagination is initialized. Should have the following structure: `function(jquery_table_object) {}` |
-| `onSelect` | `null` | A callback to be called when any page is selected. Should have the following structure: `function(jquery_table_object, current_page_index) {}` |
 | `childrenSelector` | `'tbody > tr'` | A **jquery selector string** to extract the table children. This can be handy if you are working with *divs* instead of *tables*. |
-| `navigationWrapper` | `null` | A **jquery object** to append the navigation bar to it. This can be used to put your navigation bar on a sticky footer, for example. If `null`, then it will be added after the table. |
-| `navigationClass` | `'page-navigation'` | A **css class name** applied to the navigation menu bar. Can contain multiple classes names, separated with spaces. |
+| `navigationParent` | `null` | A **jquery object** o **css selector** to append the navigation bar to. This can be used to put your navigation bar on a sticky footer, for example. If `null`, the navigation bar will be added after the table element. |
 | `pageToText` | `function(i) { return (i + 1).toString(); }` | A javascript function to transform the current page index (*0...N-1*) to a string, shown in the navigation menu. |
 
 For example, a working example with all options:
 
 ```js
-$('#myTable').paginate({
-  limit: 10, // 10 elements per page
-  initialPage: 1, // Start on second page
-  previous: true, // Show previous button
-  previousText: 'Previous page', // Change previous button text
-  next: true, // Show previous button
-  nextText: 'Next page', // Change next button text
-  first: true, // Show first button
-  firstText: 'First', // Change first button text
-  last: true, // Show last button
-  lastText: 'Last', // Change last button text
-  optional: false, // Always show the navigation menu
-  onCreate: function(obj) { console.log('Pagination done!'); } // `onCreate` callback
-  onSelect: function(obj, i) { console.log('Page ' + i + ' selected!'); } // `onSelect` callback
-  childrenSelector: 'tbody > tr.ugly', // Paginate the rows with the `ugly` class
-  navigationWrapper: $('div#myNavWrapper'), // Append the navigation menu to the `#myNavWrapper` div
-  navigationClass: 'my-page-navigation', // New css class added to the navigation menu
-  pageToText: function(i) { return (i + 1).toString(16); } // Page numbers will be shown on hexadecimal notation
-});
+'TODO'
+```
+
+## Events
+
+This library supports some jQuery events:
+
+```
+| Event name | Description |
+| ---------- | ----------- |
+| `jp:create` | The pagination is initialized. |
+| `jp:change` | A new page is selected. The new page and the old page are passed as arguments. |
+
+For example:
+
+```js
+$('#myTable').paginate(/* ... */)
+
+$('#myTable').on('jp:created', function(event) {
+  console.log('Pagination was set up')
+})
+
+$('#myTable').on('jp:select', function(event, newPage, oldPage) {
+  console.log('Page changed from ' + oldPage + ' to ' + newPage)
+})
 ```
 
 ## Development

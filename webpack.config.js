@@ -5,7 +5,7 @@ module.exports = {
   devtool: 'source-map',
   mode: 'production',
   entry: {
-    main: './src/main.js'
+    main: './src/index.coffee'
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -16,17 +16,6 @@ module.exports = {
       {
         test: /\.coffee$/,
         use: 'coffee-loader'
-      },
-      {
-        test: /\.js$/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              ["env", { targets: { browsers: "> 1%" } }]
-            ]
-          }
-        }
       }
     ]
   }
