@@ -4,9 +4,8 @@
   "description": "jQuery pagination plugin for tables",
   "main": "dist/jquery-paginate.min.js",
   "scripts": {
-    "transpile": "node_modules/browserify/bin/cmd.js -t coffeeify src/jquery-paginate.coffee > dist/jquery-paginate.js",
-    "minify": "node_modules/uglify-js/bin/uglifyjs dist/jquery-paginate.js > dist/jquery-paginate.min.js",
-    "build": "npm run transpile && npm run minify"
+    "dev": "node_modules/webpack-cli/bin/webpack.js --watch",
+    "build": "node_modules/webpack-cli/bin/webpack.js"
   },
   "repository": {
     "type": "git",
@@ -27,12 +26,14 @@
   "homepage": "https://github.com/wikiti/jquery-paginate#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
-    "babelify": "^8.0.0",
-    "browserify": "^16.1.1",
-    "coffeeify": "^3.0.1",
+    "coffee-loader": "^0.9.0",
     "coffeescript": "^2.2.4",
-    "jquery": "~1.12.4",
-    "uglify-js": "^3.3.17"
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
   }
 }

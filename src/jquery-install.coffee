@@ -1,6 +1,6 @@
-(($) ->
-  Paginator = require('./paginator.coffee')
+import Paginator from './paginator.coffee'
 
+export default ($) ->
   $.fn.paginate = (options) ->
     new Paginator($, this).build($.extend({}, $.fn.paginate.defaults, options))
 
@@ -19,4 +19,3 @@
     navigationClass: 'page-navigation'
     pageToText: (i) -> (i + 1).toString()
   return
-) jQuery

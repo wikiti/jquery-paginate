@@ -125,13 +125,19 @@ $('#myTable').paginate({
 
 ## Development
 
-To build this project, just install dependencies:
+First, install the project's dependencies:
 
 ```
 npm install
 ```
 
-And run the `build` script:
+To keep building the files with each change (i.e. _watching_ them), use the `dev` script:
+
+```
+npm run dev
+```
+
+To simply build the production minified files, use the `build` script:
 
 ```
 npm run build
